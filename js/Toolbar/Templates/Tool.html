@@ -1,0 +1,14 @@
+<div 
+	data-dojo-attach-point="panelTool"
+	class="panelTool"
+	autofocus=true
+	tabindex=0
+    aria-label="${tip}"
+    data-tip="${tip}"
+    data-dojo-attach-event="keypress:executeByKbd"
+	>
+	<input type="image" src="${icon}" tabindex=-1 alt="${tip}"
+		data-dojo-attach-point="pTool"
+		data-dojo-attach-event="click:execute">
+	<img src="${badge}" class="setIndicator" style="display:none;" tabindex="0" id="badge_${config.badgeEvName}" alt="${config.badgeTip}" title="${config.badgeTip}">	
+</div>

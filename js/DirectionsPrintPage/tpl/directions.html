@@ -1,0 +1,168 @@
+<style>
+.pDirections .esriPrintHeader {
+    display:block;
+    margin-bottom:5px;
+}
+
+.pDirections .esriPrintName {
+    font-weight:700;
+    font-size:120%;
+    margin:10px 0 5px;
+    font-family:arial,sans-serif;
+}
+
+.pDirections .esriPrintStopLabel {
+    color: black;
+    /*display: inline-block;*/
+    font-size: 11px;
+    font-weight: bold;
+    width: 21px;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+    /*position: absolute;*/
+    margin-top: -31px;
+}
+
+.pDirections .esriPrintLength {
+    font-weight:700;
+    margin:0 0 10px;
+}
+
+.pDirections .esriPrintDirections {
+    margin:0;
+    font-family:arial,sans-serif;
+    font-size:13px;
+}
+
+.pDirections .esriPrintDirections table {
+    border-collapse:collapse;
+    margin:0;
+    padding:0;
+    border:0;
+    width:100%;
+}
+
+.pDirections .esriPrintMap {
+    text-align: center;
+}
+
+.pDirections .esriPrintNotes {
+    width:100%;
+}
+
+.esriResultsSummary {
+    line-height: 18px;
+    color: black;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    background: #ebebeb;
+    cursor: pointer;
+    padding: 0 5px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    font-family: Arial;
+}
+
+.esriImpedanceCost {
+    font-size: 1.75em;
+    font-weight: bold;
+    line-height: 30px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.esriTrafficLabel {
+    font-weight: bold;
+}
+
+.esriTrafficLabelHidden {
+    display: none;
+}
+
+.esriImpedanceCostHrMin {
+    display: flex;
+    font-size: 0.5em;
+    line-height: 18px;
+    justify-content: space-around;
+    display: -ms-flexbox;
+    -ms-flex-align: center;
+    -ms-flex-pack: center;
+    direction: ltr;
+    white-space: nowrap;
+}
+
+.esriImpedanceCostHr, 
+.esriImpedanceCostMin {
+    display: inline;
+    margin-left: 3px;
+    margin-right: 3px;
+    unicode-bidi: embed;
+}
+
+.esriTrafficLabelLight {
+    color: darkgreen;
+}
+
+.esriTrafficLabelHeavy {
+    color: darkred;
+}
+
+.pDirections .esriPrintMapImg {
+    border: 1px solid #AAAAAA;
+    box-shadow: 2px 2px 5px #AAAAAA;
+    max-height: 650px;
+}
+</style>
+<div class="esriPrintBar">
+    <input type="button" id="closeButton" class="esriCloseButton" value="{{>Close}}">
+    <input type="button" id="printButton" class="esriPrintButton" value="{{>Print}}">
+</div>
+<div class="esriPrintMain">
+    <div class="esriPrintHeader">
+        <img class="esriPrintLogo" src="https://www.arcgis.com/about/graphics/logo-esri.png" alt="logo"/>
+        {{^error}}
+            <div class="esriPrintName">{{routeName}}</div>
+            <div id="dirSummary"></div>
+            <div id="divMap" class="esriPrintMap esriPrintWait"></div>
+            <div id="print_helper"></div>
+            <label>
+                <textarea id="print_area" class="esriPrintNotes" placeholder="{{>Notes}}" aria-label="{{>Notes}}"></textarea>
+            </label>
+        {{/error}}
+        <div class="clear"></div>
+    </div>
+    <div class="esriPrintDirections">
+        {{#error}}
+            <p>No directions to display.</p>
+        {{/error}}
+        {{^error}}
+        <table role="presentation">
+            <tbody>
+            {{#features}}
+            <tr {{#lastColumn}}class="esriDMTStopLast"{{/lastColumn}}>
+                <td class="esriRouteIconColumn">
+                    {{#maneuver}}
+                    <div>
+                        <img src="{{maneuver}}" alt="maneuver"/>
+                        {{#attributes.hasLabel}}
+                        <div class="esriPrintStopLabel" aria-hidden="true">{{letter}}</div>
+                        {{/attributes.hasLabel}}
+                    </div>
+                    {{/maneuver}}
+                </td>
+                <td class="esriRouteTextColumn">
+                    <div>{{#attributes.step}}<strong>{{attributes.step}}.</strong>{{/attributes.step}} {{attributes.text}}</div>
+                </td>
+                <td class="esriRouteTextColumn" width="10%">
+                     <div class="esriRouteLength">{{distance}}</div>
+                </td>
+            </tr>
+            {{/features}}
+            </tbody>
+        </table>
+        {{/error}}
+    </div>
+</div>

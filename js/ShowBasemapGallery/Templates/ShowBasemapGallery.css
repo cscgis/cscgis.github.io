@@ -1,0 +1,24 @@
+.basemapFlowContainer {
+	display: flex;
+	overflow-x: auto;
+    width: 100%;
+    background-color: silver;
+}
+
+.basemapFlowContainer .esriBasemapGalleryThumbnail {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.basemapFlowContainer .esriBasemapGalleryLabelContainer {
+    height: auto;
+    overflow: hidden;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 2px;
+}
+
+#showBasemapGallery .esriBasemapGalleryNode {
+    width: auto !important;
+}

@@ -1,0 +1,222 @@
+/* li[role='menuitem']:not(.searchMenu):hover, */
+div[role='button']:not(.searchBtn):not(.geoCodingBtn):not(.searchClear):not(.home):not(.zoomLocateButton):hover,
+.no-touch .esriMeasurement .esriButton .dijitButtonNode:hover,
+#dijit_form_ComboButton_0_arrow:hover,
+button:hover, .navBtn:hover,
+.panelToolActive:hover,
+.esriMeasurement .esriToggleButton .dijitButtonNode:hover,
+.panelTool:hover, /*.esriBookmarkItem:hover,*/
+.esriSimpleSliderDecrementButton:hover, .esriSimpleSliderHomeButton:hover, .esriSimpleSliderIncrementButton:hover,
+.directionsButton:hover,
+#featureTableCloseBtn:hover,
+.esri-feature-table-menu-item.esri-feature-table-button.esri-icon-menu.icon-ui-menu:hover
+{
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/*.HomeButton .home:hover,
+.LocateButton .zoomLocateButton:hover {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+*/
+/*
+INTERNET EXPLORER and FIREFOX : not supported or buggy:
+http://reference.sitepoint.com/css/outline-color
+*/
+:focus {
+    /*--outline: -webkit-focus-ring-color auto 5px !important;*/
+    outline-width: 2px;
+    outline-offset: -1px;
+    outline-style: solid;
+    outline-color: invert;
+    /*box-shadow: 0 0 0 4px red inset;*/
+    }
+}
+
+.esriSimpleSliderIncrementButton:focus,
+.esriSimpleSliderHomeButton:hover,
+.esriSimpleSliderDecrementButton:focus{
+    outline-offset: 2px;
+}
+
+.homeContainer input:focus, .locateContainer input:focus
+{
+}
+
+.panelTool input[type="image" i]:focus
+{
+    --outline: -webkit-focus-ring-color auto 5px !important;
+    outline-width: 2px;
+}
+
+.ovwHighlight:focus{
+    /*--outline: -webkit-focus-ring-color auto 5px !important;*/
+    outline-offset: 2px !important;
+}
+
+#embedMapSizeDropDown:focus {
+    /*--outline: -webkit-focus-ring-color auto 5px !important;
+    outline-width: 2px;*/
+    outline-style: solid;
+    /*outline-color: rgba(0, 0, 0, 0.9);*/
+}
+
+.arcgisSearch .searchMenu li:hover, .arcgisSearch .searchMenu li:focus {
+  background-color: rgba(0, 0, 0, 0.3);
+  color:white;
+}
+
+.activeMarker,
+/* .panelToolActive, */
+.esriBasemapGallerySelectedNode,
+.dijitSplitterThumb {
+  background-color: rgba(0, 0, 0, 0.7);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4D000000,endColorstr=#4D000000) !important;
+}
+
+.goThereHint { }
+
+.searchBtn:focus, .searchClear:focus, .searchInput:focus {
+  /*background-color: rgba(0, 0, 0, 0.7);*/
+}
+
+}
+.simpleDirections .searchClose:focus { }
+
+.simpleDirections .searchClose:hover { }
+
+.esri-feature-table .esri-feature-table-menu .dijitDropDownButton .dijitButtonNode:hover { }
+
+#mapDiv:focus div.mapFocus {
+  z-index:1;
+  pointer-events: none;
+}
+
+.activeBg {
+  padding-top: 1px;
+  margin-top:-1px;
+  border-radius: 15%;
+}
+
+
+#addrHintTitle {
+  padding: 5px;
+  margin:-5px;
+  border-radius: 5px 5px 0 0;
+  /*background:navy;
+  color:white;*/
+}
+
+#addrHintContent {
+  padding: 5px;
+  margin:-5px;
+  margin-top:5px;
+  border-radius: 0 0 5px 5px;
+  font-weight: bold;
+  background:white;
+  color:black;
+}
+
+*[data-tip]:after,
+div[data-tip]:after {
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+    content: attr(data-tip);
+    position: absolute;
+    bottom: -2.5em;
+    border-radius: 5px;
+    padding: 2px 8px;
+    left:0;
+    /*max-width: 200px;*/
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-shadow: 2 2 6 0 rgba(0, 0, 0, 1);
+    -moz-box-shadow: 2 2 6 0 rgba(0, 0, 0, 1);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 1);
+    display: none; 
+}
+
+*[data-tip]:focus:after,
+div[data-tip]:focus:after {
+    border: solid white 2px;
+    background:black;
+    color:white;
+    z-index: 4;
+    display: inline-block;
+}
+
+*[data-tip]:hover:after,
+div[data-tip]:hover:after {
+    border: solid white 2px;
+    background:black;
+    color:white;
+    z-index: 5;
+    display: inline-block;
+}
+
+*[data-tip]::before,
+div[data-tip]::before {
+  position: absolute;
+  border-style : solid;
+  border-width : 8px;
+  border-color: transparent transparent red transparent;
+  top : 85%;
+  margin-left : 4px;
+  z-index: 3;
+  content : "";
+  display: none;
+  background: transparent !important;
+}
+
+*[data-tip]:hover::before, *[data-tip]:focus::before,
+div[data-tip]:hover::before, div[data-tip]:focus::before{
+  display: inline-block;
+}
+
+
+/* .tooltip__focus {
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+    padding:5px;
+    margin-top: 1.5em;
+    position: absolute;
+    max-width: 200px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 2px;
+    z-index:1000;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-shadow: 1px 1px 1px 0px rgba(255,255,255,0.51);
+    -moz-box-shadow: 1px 1px 1px 0px rgba(255,255,255,0.51);
+    box-shadow: 1px 1px 1px 0px rgba(255,255,255,0.51);
+}
+
+.tool--focus {
+    background-color: black;
+    color: white;
+    border-color: black;
+} */
+
+/*.simpleDirections .dojoDndItemOver, .simpleDirections .dojoDndItemAnchor {
+    background-color: green;
+}
+
+*/.simpleDirections .esriRouteZoom:focus {
+    outline-width: 2px;
+    outline-offset: -1px;
+    outline-style: solid;
+    background-color: white;
+    color: black;
+}
+
+.simpleDirections .searchInput:focus {
+    outline-width: 2px;
+    outline-offset: -1px;
+    outline-style: solid;
+    background-color: white;
+}
